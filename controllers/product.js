@@ -22,7 +22,7 @@ class Controller {
   async lastFour(req, res) {
     Product.find()
       .sort({ _id: -1 })
-      .limit(5)
+      .limit(7)
       .exec(function (error, response) {
         if (error) return next(error);
         res.status(200).send({ response });
