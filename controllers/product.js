@@ -35,8 +35,9 @@ class Controller {
       Product.find()
         .skip(random)
         .limit(7)
-        .exec(function (err, result) {
-          console.log(result);
+        .exec(function (error, response) {
+          if (error) return next(error);
+          res.status(200).send({ response });
         });
     });
   }
