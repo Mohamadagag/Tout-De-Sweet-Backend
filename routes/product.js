@@ -33,6 +33,7 @@ var upload = multer({
 });
 
 router.get("/", controller.getAllProducts);
+router.get("/randomfive", controller.randomFive);
 router.get("/last", controller.lastFour);
 router.get("/:id", controller.getOneProduct);
 router.post("/", upload.array("image", 6), controller.post);

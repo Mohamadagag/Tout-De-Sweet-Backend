@@ -29,6 +29,18 @@ class Controller {
       });
   }
 
+  async randomFive(req, res) {
+    Product.count().exec(function (err, count) {
+      var random = Math.floor(Math.random() * count);
+      Product.find()
+        .skip(random)
+        .limit(7)
+        .exec(function (err, result) {
+          console.log(result);
+        });
+    });
+  }
+
   async getOneProduct(req, res, next) {
     let { id } = req.params || {};
     Product.findById(id)
