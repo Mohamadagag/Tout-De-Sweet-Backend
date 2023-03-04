@@ -19,6 +19,13 @@ class Controller {
     }).populate("categories");
   }
 
+  async fetchProducts(req, res, next) {
+    Product.find({}, (error, response) => {
+      if (error) return next(error);
+      res.send({ response });
+    }).populate("categories");
+  }
+
   async lastFour(req, res) {
     Product.find()
       .sort({ _id: -1 })

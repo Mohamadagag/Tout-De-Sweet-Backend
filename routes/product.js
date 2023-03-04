@@ -35,7 +35,8 @@ var upload = multer({
 router.get("/", controller.getAllProducts);
 router.get("/randomfive", controller.randomFive);
 router.get("/last", controller.lastFour);
-router.get("/:id", controller.getOneProduct);
+router.get("/last", controller.lastFour);
+router.get("/allproducts", controller.fetchProducts);
 router.post("/", upload.array("image", 6), controller.post);
 
 module.exports = router;
