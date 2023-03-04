@@ -32,11 +32,11 @@ var upload = multer({
   },
 });
 
-router.get("/", controller.getAllProducts);
-router.get("/randomfive", controller.randomFive);
-router.get("/last", controller.lastFour);
-router.get("/last", controller.lastFour);
-router.get("/allproducts", controller.fetchProducts);
-router.post("/", upload.array("image", 6), controller.post);
+router.get("/", controller.getAllProducts); /* Get products based on the selected category */
+router.get("/allproducts", controller.fetchProducts); /* Get All products */
+router.get("/randomfive", controller.randomFive);  /* Get random products */
+router.get("/last", controller.lastFour); /* Get last four */
+router.get("/:id", controller.getOneProduct); /* Get single product based on the id */
+router.post("/", upload.array("image", 6), controller.post); /* Add new product*/
 
 module.exports = router;
